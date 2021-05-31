@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+   
+{% block content %}
+<div class="row">
+    <h1 class="text-center"><i class="fi-torso" style = "color: blueviolet;"></i></h1>
+</div>
+<div class="row">
+<div class="grid-x grid-padding-x">
+    <div class="cell auto"></div>
+    <div class="cell medium-6">
+        <div class="card">
+            <div class="card-section">
+                <form class="log-in-form" action="/registerUser" method="POST">
+                    <h4 class="text-center">New User Registration</h4>
+                    <label>Full Name
+                        <input type="text" name="user_name" required="required" placeholder="Full Name">
+                    </label>
+                    <label>Email
+                        <input type="email" name="email" required="required" placeholder="somebody@example.com">
+                    </label>
+                    <label>Password
+                      <input type="password" name="pwd" required="required" placeholder="Password">
+                    </label>
+                    <label>Confirm Password
+                        <input type="password" name="pwd2" required="required" placeholder="Confirm Password">
+                    </label>
+                    <p><input type="submit" class="button expanded warning" value="Register"></input></p>
+                    <div class="callout small text-center warning" id="msg">
+                        {{ message }}
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cell auto"></div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+

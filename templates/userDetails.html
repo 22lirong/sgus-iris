@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+   
+{% block content %}
+<div class="row">
+    <h1 class="text-center"><i class="fi-results-demographics" style = "color:blueviolet;"></i></h1>
+</div>
+
+<div class="row">
+    <div class="grid-x grid-padding-x">
+        <div class="cell auto"></div>
+        <div class="cell medium-6">
+            <div class="callout primary">
+                <h4>User's Profile</h5>
+                <table class="unstriped">
+                    <tbody>
+                    <tr>
+                        <td width="120">#</td>
+                        <td width="10">:</td>
+                        <td><h5>{{ user.user_id }}</h5></td>
+                    </tr>
+                    <tr>
+                        <td>user_name</td>
+                        <td>:</td>
+                        <td><h5>{{ user.user_name }}</h5></td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>:</td>
+                        <td><h5>{{ user.email }}</h5></td>
+                    </tr>
+                    <tr>
+                        <td>role</td>
+                        <td>:</td>
+                        <td><h5>{{ user.role }}</h5></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-left">
+                    <a href="/admin.html?search=" class="button">Back to Admin</a>
+                </div>
+            </div>
+        </div>
+        <div class="cell medium-3">
+            <div class="callout alert text-center">
+                <form action="/removeUser?user_id={{user.user_id}}" method="POST">
+                    <button type="submit" class="alert button">Delete User</button>
+                </form>
+                Delete user account will cascade delete all the prediction results.
+            </div>
+            <div class="callout alert text-center">
+                <form action="/changeRole?user_id={{user.user_id}}" method="POST">
+                    <button type="submit" class="alert button">Change role to 'admin'</button>
+                </form>
+                User with 'admin' role will be able to view/edit/delete all user's profile.</p>
+            </div>
+        </div>
+        <div class="cell auto"></div>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="grid-x grid-padding-x">
+        <div class="cell auto"></div>
+        
+        <div class="cell medium-12">
+            <div id="preds">
+                <table class="unstriped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Sepal Length (cm)</th>
+                        <th>Sepal Width (cm)</th>
+                        <th>Petal Length (cm)</th>
+                        <th>Petal Width (cm)</th>
+                        <th>Prediction</th>
+                        <th></th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pred in preds %}
+                    <tr>
+                        <td>{{ pred.pred_id }}</td>
+                        <td>{{ pred.sepal_length }}</td>
+                        <td>{{ pred.sepal_width }}</td>
+                        <td>{{ pred.petal_length }}</td>
+                        <td>{{ pred.petal_width }}</td>
+                        <td>{{ pred.prediction }}</td>
+                        <td>
+                            <form action="/removePred?pred_id={{pred.pred_id}}" method="POST">
+                                <button type="submit" class="alert button">Remove</button>
+                            </form>
+                        </td>
+                        <td>{{ pred.insertion_date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="cell auto"></div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
+

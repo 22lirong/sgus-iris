@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+   
+{% block content %}
+<div class="row">
+    <h1 class="text-center"><i class="fi-results-demographics" style = "color: blueviolet;"></i></h1>
+</div>
+
+<div class="row">
+    <div class="grid-x grid-padding-x">
+        <div class="cell auto"></div>
+        <div class="cell medium-9">
+            <div class="callout warning">
+                <form action="/admin.html" method="GET">
+                    <input type="text" name="search" placeholder="Search User Name"></input>
+                    <input type="submit" class="button warning" value="Search"></input>
+                </form>
+            </div>
+        </div>
+        <div class="cell auto"></div>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="grid-x grid-padding-x">
+        <div class="cell auto"></div>
+        <div class="cell medium-12">
+            <div id="users">
+                <table class="unstriped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>User Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{ user.user_id }}</td>
+                            <td>{{ user.user_name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.role }}</td>
+                            <td>
+                                <a href="/userDetails.html?user_id={{user.user_id}}" class="button">View Details</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="cell auto"></div>
+    </div>
+</div>
+
+{% endblock %}
+

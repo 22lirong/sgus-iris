@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <h1 class="text-center"><i class="fi-home" style = "color: blueviolet;"></i></h1>
+</div>
+
+<div class="row">
+    <div class="grid-x grid-padding-x">
+        <div class="cell auto"></div>
+        <div class="cell medium-9">
+            
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/iris_flower.png') }}">
+                <div class="card-section">
+                  <h3 class="text-center"  style="color:blueviolet; font-size:36px; font-weight: bold;">Iris Flower Predication</h3>
+                  <p class="text-center">This application will predict the flower class based on its 
+                      sepal length, sepal width, petal length, and petal width.</p>
+                </div>
+            </div>
+        </div>
+        <div class="cell auto"></div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="grid-x grid-padding-x">
+        <div class="cell auto"></div>
+        <div class="cell medium-3">
+            <div class="card">
+                <div class="card-section text-center">
+                    <br>
+                    <a href="/login" class="button warning">Login</a>
+                    <br>
+                    Login to use this App!
+                </div>
+            </div>
+        </div>    
+        <div class="cell medium-3">
+            <div class="card">
+                <div class="card-section text-center">
+                    <br>
+                    <a href="/reset" class="button warning">Request Password Reset</a>
+                    <br>
+                    Forgot password?
+                </div>
+            </div>
+        </div>    
+        <div class="cell medium-3">
+            <div class="card">
+                <div class="card-section text-center">
+                    <br>
+                    <a href="/register" class="button warning">Register</a>
+                    <br>
+                    Not registered yet?
+                </div>
+            </div>
+        </div>
+        <div class="cell auto"></div>
+    </div>
+</div>
+
+{% endblock %}

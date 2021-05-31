@@ -1,0 +1,24 @@
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="menu align-left">
+            <li class="menu-text" style="color: blueviolet; font-size:20px; font-weight: bold;">Iris Flower Prediction</li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu align-right">
+            <li class="{% if index %}is-active{% endif %}">
+                <a href="{{ url_for('index') }}"><i class="fi-home"></i> <span>Home</span></a>
+            </li>
+            <li class="{% if login %}is-active{% endif %}">
+                <a href="{{ url_for('login') }}"><i class="fi-key"></i> <span>Login</span></a>
+            </li>
+            <li class="{% if register %}is-active{% endif %}">
+                <a href="{{ url_for('register') }}"><i class="fi-torso"></i> <span>Register</span></a>
+            </li>
+            <li class="{% if logout %}is-active{% endif %}">
+                <a href="{{ url_for('logout') }}"><i class="fi-lock"></i> <span>Logout</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+

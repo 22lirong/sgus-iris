@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+   
+{% block content %}
+<div class="row">
+    <h1 class="text-center"><i class="fi-torso" style = "color: blueviolet;"></i></h1>
+</div>
+<div class="row">
+<div class="grid-x grid-padding-x">
+    <div class="cell auto"></div>
+    <div class="cell medium-6">
+        <div class="card">
+            <div class="card-section">
+                <form class="log-in-form" action="/resetReq" method="POST">
+                    <h4 class="text-center">Request Password Reset</h4>
+                    <h6 class="text-center">Please enter your email address and we will send a password reset link to your email.</h6>
+                    <label>Email
+                        <input type="email" name="email" required="required" placeholder="somebody@example.com">
+                    </label>
+                    <p><input type="submit" class="button expanded warning" value="Request Password Reset"></input></p>
+                    <div class="callout small text-center warning" id="msg">
+                        {{ message }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cell auto"></div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
